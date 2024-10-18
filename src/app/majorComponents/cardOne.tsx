@@ -21,8 +21,8 @@ const CardOne = ({ image, step, heading, content }: CardProp) => {
       const rect = card.getBoundingClientRect();
       const x = e.clientX - rect.left - rect.width / 2;
       const y = e.clientY - rect.top - rect.height / 2;
-      const rotateX = (-y / rect.height) * 30; // Adjust sensitivity for smoother effect
-      const rotateY = (x / rect.width) * 30;
+      const rotateX = (-y / rect.height) * 50; // Adjust sensitivity for smoother effect
+      const rotateY = (x / rect.width) * 50;
 
       setRotation({
         x: rotateX,
@@ -38,7 +38,7 @@ const CardOne = ({ image, step, heading, content }: CardProp) => {
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={resetRotation}
-      className="relative max-w-md w-full md:max-w-lg lg:max-w-xl mx-auto bg-gray-50 rounded-2xl shadow-lg overflow-hidden transition-transform duration-5"
+      className="relative max-w-md w-full h-full   md:max-w-lg lg:max-w-xl mx-auto bg-gray-100 rounded-2xl shadow-lg overflow-hidden transition-transform duration-5"
       style={{
         perspective: "1000px",
         transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
@@ -59,8 +59,8 @@ const CardOne = ({ image, step, heading, content }: CardProp) => {
       {/* Content Section */}
       <div className="p-6 bg-gray-100">
         <h2 className="text-sm text-gray-400 font-semibold mb-2">{step}</h2>
-        <h3 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4">{heading}</h3>
-        <p className="text-gray-600 text-sm md:text-base lg:text-lg">{content}</p>
+        <h3 className="text-xl md:text-lg lg:text-xl font-bold mb-4">{heading}</h3>
+        <p className="text-gray-600 text-sm md:text-base lg:text-[1rem] pb-2">{content}</p>
       </div>
     </motion.div>
   );

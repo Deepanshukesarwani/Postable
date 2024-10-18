@@ -16,11 +16,13 @@ const config: Config = {
     },
   },
   plugins: [
-    plugin(function({ addUtilities }) {
+    plugin(function ({ addUtilities }) {
       addUtilities({
         '.scrollbar': {
+          /* Customize scrollbar width */
           '&::-webkit-scrollbar': {
-            width: '5px',
+            width: '5px', // Set width for vertical scrollbar
+            height: '5px', // Set height for horizontal scrollbar
           },
           '&::-webkit-scrollbar-track': {
             background: '#f1f1f1',

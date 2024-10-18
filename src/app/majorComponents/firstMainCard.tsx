@@ -2,22 +2,20 @@
 import FacebookPostCard from "../components/postCard";
 import { motion } from "framer-motion";
 import Bg from "/public/images/bg_1.webp"
-import { div } from "framer-motion/client";
-import { Instagram } from 'lucide-react';
-import { Facebook } from 'lucide-react';
-import { Linkedin } from 'lucide-react';
+import { useState } from "react";
 const MainCard = () => {
-    console.log(Bg);
+    // console.log(Bg);
+    const[selectedCategory,setSelectedCategory]=useState<"Instagram Story" | "Linkedin Post" | "Instagram Post"|"Facebook Post">("Facebook Post")
+    console.log(selectedCategory);
+
+    const dynamicHeight = selectedCategory === "Instagram Story" ? "h-[250vh]" : "";
   return (
     
-    <div className="">
 
     <section 
-    className="relative w-[80vw] min-w-[60vw] mx-auto h-screen  flex  justify-center text-center pl-5 pr-5   border rounded-[6rem]"
+    className={`relative w-[80vw] lg:h-[100vh] ${dynamicHeight} mx-auto  md:h-[130vh] xs:h-[130vh]  flex  justify-center text-center pl-5 pr-5   border rounded-[6rem]`}
     style={{
         backgroundImage: `url(${Bg.src})`,
-        // backgroundSize: "cover",
-        // backgroundPosition: "center",
     }}>
       <motion.div
         className="  p-12 rounded-[6rem]  max-w-3xl mx-auto "
@@ -25,27 +23,38 @@ const MainCard = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        <h1 className="text-6xl md:text-6xl font-bold text-white mb-6">
+        <h1 className="text-3xl lg:text-6xl font-bold text-white mb-6">
           Share Your Voice Beyond Just a Tweet
         </h1>
-        <p className="text-lg text-white">
+        <p className="text-sm lg:text-lg text-white">
           Keep your online presence steady and growing by creating customizable images from your tweets, perfect for Instagram, Facebook, and more.
         </p>
         <div className="flex space-x-3 justify-center mt-6">
-          <button className=" text-slate-200 p-2 rounded-md">Instagram Story</button>
-          <button className="text-slate-200 p-2 rounded-md">LinkedIn Post</button>
-          <button className="bg-gray-800 text-slate-200 p-2 rounded-md">Facebook Post</button>
-          <button className="text-slate-200 p-2 rounded-md">Instagram Post</button>
-          <button className=" text-slate-200 p-2 rounded-md">+ More</button>
+          {
+            ['Instagram Story', 'Linkedin Post', 'Facebook Post','Instagram Post'].map((category)=>(
+              <button 
+              key={category}
+              onClick={()=>setSelectedCategory(category as "Instagram Story" | "Linkedin Post" | "Instagram Post"|"Facebook Post" )}
+              className={` text-slate-200 p-2 rounded-md
+                 ${ selectedCategory === category ?
+                  'bg-gray-900 ':
+                  ""
+                 }`}>{category}</button>
+            ))
+          }
+
+       
         </div>
       </motion.div>
 
       {/* Facebook Post Card */}
       <div className="absolute bottom-[-5.5rem] left-1/2 transform -translate-x-1/2">
-        <FacebookPostCard />
+        <FacebookPostCard 
+        postCategory={selectedCategory}/>
       </div>
+
     </section>
-    </div>
+    
 
   );
 };

@@ -28,11 +28,12 @@
 // export default Hero;
 
 import { Clipboard } from 'lucide-react';
+import SampleTweet from './postcard';
 
 const Hero = () => {
   return (
     <section className="h-screen flex flex-col justify-center bg-white">
-      <div className="text-center mb-14 mt-0">
+      <div className="text-center mb-14 mt-[6rem]">
         <h1 className="text-4xl md:text-6xl font-sans font-bold w-full md:w-[55%] mx-auto">
           Convert Tweets into Engaging Social Media Posts, Instantly!
         </h1>
@@ -59,6 +60,12 @@ const Hero = () => {
               </button>
           </div>
         </div>
+      </div>
+      <div className='h-6 text-center mt-2'>
+        <p className='text-gray-300'>No signup, no credit card, no crap!</p>
+      </div>
+      <div className=" flex justify-center mt-3">
+        <SampleTweet/>
       </div>
     </section>
   );

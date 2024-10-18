@@ -14,6 +14,7 @@ import Engaging from "./sections/Engaging";
 import FAQSection from "./sections/faqSection";
 import { motion, useScroll, useSpring,useTransform  } from 'framer-motion';
 import { ArrowRight } from "lucide-react";
+import Footer from "./majorComponents/footer";
 export default function Home() {
   const featureImage = [
     "/images/feature-1.webp",
@@ -22,29 +23,6 @@ export default function Home() {
     "/images/feature-4.webp",
     "/images/feature-5.webp",
   ];
-
-  // const { scrollYProgress } = useScroll(); // useScroll replaces useViewportScroll
-  // const [isFloating, setIsFloating] = useState(false);
-
-  // const { scrollYProgress } = useScroll(); // Track scroll progress
-  // const yPos = useTransform(scrollYProgress, [0.7, 1], ["0%", "-100%"]); // Move black section up as we scroll
-
-  // This controls when to apply the floating effect
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const scrollPosition = window.scrollY;
-  //     const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-
-  //     // If the user scrolls near the bottom, float the black footer
-  //     setIsFloating(scrollPosition > maxScroll - 500);
-  //   };
-
-  //   window.addEventListener('scroll', handleScroll);
-  //   return () => {
-  //     window.removeEventListener('scroll', handleScroll);
-  //   };
-  // }, []);
-
   const { scrollYProgress } = useScroll(); // Track scroll progress
   const yPos = useTransform(scrollYProgress, [0.7, 1], ["0%", "-100%"]); // Move black section up as we scroll
 
@@ -57,7 +35,6 @@ export default function Home() {
         <main >
           <Hero />
           <MainCard />
-          {/* <CardOne/> */}
           <HowItworks />
           <OptimizedForSocialMedia />
           <Section2
@@ -77,15 +54,10 @@ export default function Home() {
         </main>
       </div>
 
+      <footer className="h-[230vh]  ">
+        <div className="bg-white m-0 p-0 rounded-b-[6rem] relative ">
 
-      <div className="relative h-[240vh]">
-        
-        {/* Black Section (Floating Effect) */}
-        <motion.div 
-          className="h-[160vh] w-full bg-black rounded-[5rem] z-10" 
-          style={{ y: yPos }} // Applying parallax effect
-        >
-          <section className="flex flex-col py-[6rem] sm:px-25 lg:px-17 xl:px-10 h-[50vh]">
+      <section className="flex flex-col  bg-black py-[6rem] sm:px-25 lg:px-17 xl:px-10 h-[150vh] rounded-[6rem]">
             <motion.h1
               className="text-3xl flex flex-col items-center sm:text-4xl lg:text-7xl font-bold w-full text-white"
               initial={{ opacity: 0, y: -50 }}
@@ -119,15 +91,15 @@ export default function Home() {
               <img src="/images/footer.webp" alt='footerImg' className='min-w-screen-sm'/>
             </div>
           </section>
-        </motion.div>
+        </div>
 
-        {/* Purple Section */}
-        <footer className="absolute bottom-0 h-[80vh] bg-purple-500 z-0">
-          <p className="text-white p-8">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique, dolorum veniam minus officiis dicta architecto tenetur dolores voluptatum, nostrum ducimus molestias officia. Sit, beatae dolore quidem eum tempora deserunt eaque.
-          </p>
-        </footer>
-      </div>
+          <div className="bg-gradient-to-tr from-pink-400 via-purple-500  to-purple-500 h-[100vh] sticky bottom-0 -z-10 rounded-t-[6rem p-6 pt-[10rem] mt-10">
+
+            <Footer/>
+          </div>
+
+      </footer>
+
     </>
   );
 }

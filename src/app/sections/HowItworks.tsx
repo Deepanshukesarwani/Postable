@@ -43,22 +43,10 @@ export default function HowItWorks() {
       <div>
         <h1 className='text-5xl  mb-5 pl-5'>How it works?</h1>
       </div>
-      {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-       
-        {data.map((item, index) => (
-          <CardOne
-            key={index}
-            image={item.image}
-            step={item.step}
-            heading={item.heading}
-            content={item.content}
-          />
-        ))}
-      </div> */}
 <div className="flex justify-around overflow-x-auto overflow-y-hidden space-x-6 scrollbar-hide px-6 py-5">
         {/* Mapping through the data and rendering CardOne for each item */}
         {data.map((item, index) => (
-          <div key={index} className="flex-shrink-0 max-w-[24rem]"> {/* Card container with fixed width */}
+          <div key={index} className="flex-shrink-0 max-w-[23rem] h-[30rem]"> {/* Card container with fixed width */}
             <CardOne
               image={item.image}
               step={item.step}
@@ -68,17 +56,6 @@ export default function HowItWorks() {
           </div>
         ))}
       </div>
-
-
-      {/* <div className="h-screen flex items-center justify-center bg-gray-100">
-        <TweetCard
-          profileImage="/images/bg_1.webp" // Replace with the profile image
-          username="Kim Kardashian"
-          handle="@KimKardashian"
-          tweetContent="Last week I had the opportunity to go visit the Department of Justice in Washington DC to meet with our United States pardon attorney Elizabeth Oyer. We talked about some of the many men and women who have taken accountability for their crimes, worked hard to turn their lives around."
-          timestamp="8:53 PM · Aug 26, 2024"
-        />
-      </div> */}
     </div>
   );
 }
