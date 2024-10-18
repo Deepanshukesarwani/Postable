@@ -10,17 +10,17 @@ const MainCard = () => {
     console.log(Bg);
   return (
     
-    <div className="flex justify-center items-center h-screen">
+    <div className="">
 
     <section 
-    className="relative min-w-[80%]  h-screen  flex  justify-center text-center pl-5 pr-5 pt-2  border rounded-[6rem]"
+    className="relative w-[80vw] min-w-[60vw] mx-auto h-screen  flex  justify-center text-center pl-5 pr-5   border rounded-[6rem]"
     style={{
         backgroundImage: `url(${Bg.src})`,
         // backgroundSize: "cover",
         // backgroundPosition: "center",
     }}>
       <motion.div
-        className=" bg-opacity-30 backdrop-blur-lg p-12 rounded-xl  max-w-3xl mx-auto "
+        className="  p-12 rounded-[6rem]  max-w-3xl mx-auto "
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}

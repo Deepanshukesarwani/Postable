@@ -33,7 +33,7 @@ const Hero = () => {
   return (
     <section className="h-screen flex flex-col justify-center bg-white">
       <div className="text-center mb-14 mt-0">
-        <h1 className="text-7xl md:text-6xl font-sans font-bold w-full md:w-[55%] mx-auto">
+        <h1 className="text-4xl md:text-6xl font-sans font-bold w-full md:w-[55%] mx-auto">
           Convert Tweets into Engaging Social Media Posts, Instantly!
         </h1>
       </div>
