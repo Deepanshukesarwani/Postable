@@ -8,14 +8,16 @@ const MainCard = () => {
     const[selectedCategory,setSelectedCategory]=useState<"Instagram Story" | "Linkedin Post" | "Instagram Post"|"Facebook Post">("Facebook Post")
     console.log(selectedCategory);
 
-    const dynamicHeight = selectedCategory === "Instagram Story" ? "h-[250vh]" : "";
+    // const dynamicHeight = selectedCategory === "Instagram Story" ? "h-[200vh]" : "";
   return (
     
 
     <section 
-    className={`relative w-[80vw] lg:h-[100vh] ${dynamicHeight} mx-auto  md:h-[130vh] xs:h-[130vh]  flex  justify-center text-center pl-5 pr-5   border rounded-[6rem]`}
+    className={`relative w-[80vw] ${
+      selectedCategory === "Instagram Story" ? "h-[200vh] sm:h-[150vh] md:h-[130vh] lg:h-[130vh] h-xs:h-[120vh]" : "h-[150vh] sm:h-[120vh] md:h-[100vh] lg:h-[100vh]"
+    } mx-auto flex justify-center text-center pl-5 pr-5 border rounded-[6rem]`}
     style={{
-        backgroundImage: `url(${Bg.src})`,
+      backgroundImage: `url(${Bg.src})`,
     }}>
       <motion.div
         className="  p-12 rounded-[6rem]  max-w-3xl mx-auto "

@@ -3,7 +3,7 @@ import { Check } from 'lucide-react';
 
 const OptimizedForSocialMedia = () => {
   return (
-    <section className="bg-white py-12 px-6 md:py-16 md:px-16 lg:py-20 lg:px-10 flex flex-col lg:flex-row items-start ">
+    <section className=" py-12 px-6 md:py-16 md:px-16 lg:py-20 lg:px-10 flex flex-col lg:flex-row items-start ">
       {/* Text Section */}
       <motion.div
         className="max-w-lg"

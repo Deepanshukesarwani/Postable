@@ -39,7 +39,7 @@ const data: DataSchema[] = [
 
 export default function HowItWorks() {
   return (
-    <div className='h-[120vh]  pt-[7rem]'>
+    <div className='  py-[7rem] '>
       <div>
         <h1 className='text-5xl  mb-5 pl-5'>How it works?</h1>
       </div>

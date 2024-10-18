@@ -2,7 +2,7 @@
 
 import { FC } from 'react';
 import { motion } from 'framer-motion';
-
+import Image from 'next/image';
 interface FeaturesSectionProps {
   images: string[];  // Array of image paths
 }
@@ -23,9 +23,11 @@ const FeaturesSection: FC<FeaturesSectionProps> = ({ images }) => {
         whileHover={{ scale: 1.05 }}
         transition={{ type: 'spring', stiffness: 300 }}
       >
-        <img
+        <Image
           src={img}
           alt={`Feature ${index}`}
+          width={368} // equivalent to w-[23rem]
+          height={608}
           className="w-[23rem] h-[38rem] object-cover"
         />
       </motion.div>

@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
+// import Image from 'next/image';
 const contentData = {
   individual: {
     text: "Postable is perfect for individuals who want to elevate their social media presence without the hassle. Whether you're sharing thoughts, opinions, or everyday moments, Postable makes it easy to create and share beautiful, impactful posts from your tweets.",
@@ -19,6 +19,21 @@ const contentData = {
 const DynamicContentSection = () => {
   const [selectedCategory, setSelectedCategory] = useState<'individual' | 'influencer' | 'businesses'>('individual');
 
+  useEffect(() => {
+    const categories: ('individual' | 'influencer' | 'businesses')[] = ['individual', 'influencer', 'businesses'];
+    
+    // Function to automatically cycle through categories every 5 seconds
+    const interval = setInterval(() => {
+      setSelectedCategory((prevCategory) => {
+        const currentIndex = categories.indexOf(prevCategory);
+        const nextIndex = (currentIndex + 1) % categories.length; // Loop back to start after last item
+        return categories[nextIndex];
+      });
+    }, 5000); // 5 seconds interval
+
+    return () => clearInterval(interval); // Cleanup the interval on component unmount
+  }, []);
+
   return (
     <section className="flex flex-col lg:flex-row items-center justify-between py-12 px-6 md:px-16">
       {/* Left Side: Headings, Buttons, Text */}
@@ -31,15 +46,15 @@ const DynamicContentSection = () => {
         </p>
 
         {/* Buttons */}
-        <div className="flex space-x-4 mb-6">
+        <div className="flex space-x-4 justify-between mb-6 p-2 h-[4rem] bg-gray-100 rounded-lg">
           {['individual', 'influencer', 'businesses'].map((category) => (
             <button
               key={category}
               onClick={() => setSelectedCategory(category as 'individual' | 'influencer' | 'businesses')}
-              className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+              className={`px-10 py-2 rounded-lg font-medium transition-colors ${
                 selectedCategory === category
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-gray-200 text-gray-700'
+                  ? 'bg-white text-black'
+                  : ''
               }`}
             >
               {category.charAt(0).toUpperCase() + category.slice(1)}

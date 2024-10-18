@@ -5,19 +5,19 @@ import Image from "next/image";
 
 export default function SampleTweet() {
   return (
-    <div className=" flex justify-center h-[9rem] w-[18rem]">
+    <div className=" flex justify-center items-center h-[9rem] w-[18rem]">
       {/* Outer Pink Card */}
       <motion.div
         className="p-6 hover:bg-purple-50 rounded-[2rem] "
-        initial={{ rotate: -5 }} // Slightly tilt the entire component by default
+        initial={{ rotate: -3 }} // Slightly tilt the entire component by default
         whileHover={{ rotate: 0 }} // Straighten on hover
         transition={{ type: "spring", stiffness: 100, damping: 10 }}
       >
         <motion.div
           className="bg-white rounded-xl shadow-md p-3 h-[7rem] w-[14rem] relative"
-          initial={{ rotate: -1 }} // Slight tilt of the tweet card
+          initial={{ rotate: 0 }} // Slight tilt of the tweet card
           whileHover={{ rotate: 0, scale: 1.05 }} // Straighten and scale up on hover
-          transition={{ type: "spring", stiffness: 120, damping: 12 }}
+          transition={{ type: "spring", stiffness: 12, damping: 120 }}
         >
           {/* Tweet Header */}
           <div className="flex items-center space-x-4">
@@ -57,14 +57,6 @@ export default function SampleTweet() {
             <p>9:42 PM · Jul 29, 2024</p>
           </div>
         </motion.div>
-
-        {/* "Try Sample Tweet" Text */}
-        {/* <motion.p
-          className="text-purple-600 text-2xl text-center mt-4"
-          whileHover={{ scale: 1.05 }} // Slight scale on hover for the text as well
-        >
-          Try Sample Tweet
-        </motion.p> */}
       </motion.div>
     </div>
   );
