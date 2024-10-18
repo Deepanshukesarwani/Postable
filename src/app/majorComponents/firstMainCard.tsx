@@ -14,7 +14,7 @@ const MainCard = () => {
 
     <section 
     className={`relative w-[80vw] ${
-      selectedCategory === "Instagram Story" ? "h-[200vh] sm:h-[150vh] md:h-[130vh] lg:h-[130vh] h-xs:h-[120vh]" : "h-[150vh] sm:h-[120vh] md:h-[100vh] lg:h-[100vh]"
+      selectedCategory === "Instagram Story" ? "h-[150vh] sm:h-[150vh] md:h-[130vh] lg:h-[130vh] xs:h-[100vh] h-xs:h-[120vh]" : "h-[113vh] sm:h-[120vh] md:h-[100vh] lg:h-[100vh]"
     } mx-auto flex justify-center text-center pl-5 pr-5 border rounded-[6rem]`}
     style={{
       backgroundImage: `url(${Bg.src})`,
