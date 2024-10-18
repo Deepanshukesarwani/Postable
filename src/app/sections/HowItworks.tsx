@@ -1,6 +1,6 @@
 import React from 'react';
 import CardOne from '../majorComponents/cardOne';
-import TweetCard from '../majorComponents/solutionCard';
+// import TweetCard from '../majorComponents/solutionCard';
 import Step1 from "/public/images/step-1.webp";
 import Step2 from "/public/images/step-2.webp";
 import Step3 from "/public/images/step-3.webp";
